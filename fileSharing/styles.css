@@ -1,0 +1,93 @@
+:root {
+  --main-bg-color: #eff5fe;
+  --border-color: #0288d147;
+  --secondary-bg-color: #ffff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: system-ui;
+  background-color: var(--main-bg-color);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-container {
+  background-color: var(--secondary-bg-color);
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.drop-zone {
+  position: relative;
+  height: 250px;
+  width: 500px;
+  border: 2px dashed var(--border-color);
+  margin: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.dragged.drop-zone {
+  background-color: var(--main-bg-color);
+  border-color: #2196f3;
+}
+
+.icon-container {
+  width: 75px;
+  height: 100px;
+  position: relative;
+}
+
+.icon-container img {
+  width: 75px;
+  position: absolute;
+  transform-origin: bottom;
+  transition: transform 250ms ease-in-out;
+}
+
+.icon-container .center {
+  z-index: 2;
+}
+
+.icon-container .right,
+.icon-container .left {
+  transform: scale(0.9);
+  filter: grayscale(0.5);
+}
+
+.dragged .icon-container .right {
+  transform: rotate(10deg) translateX(25px);
+}
+
+.dragged .icon-container .left {
+  transform: rotate(-10deg) translateX(-25px);
+}
+
+.dragged .icon-container .center {
+  transform: translateY(-5px);
+}
+
+.fileInput {
+  display: none;
+}
+
+.browseBtn {
+  color: #2196f3;
+  cursor: pointer;
+}

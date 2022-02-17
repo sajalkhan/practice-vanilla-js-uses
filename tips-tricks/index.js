@@ -73,3 +73,55 @@ for (let i = 0; i <= 100; i++) {
 
 const endTime = performance.now();
 console.log(`for loop takes ${endTime - startTime} milliseconds to finish`);
+
+//TODO: ---👇 swaping values
+let array = [1, 2, 3, 4, 5];
+
+// temp variable old way
+let temp = array[0];
+array[0] = array[4];
+array[4] = temp;
+console.log({ array });
+array.sort();
+
+// new way - array destructuring
+[array[0], array[4]] = [array[4], array[0]];
+console.log({ array });
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+console.log(a, b);
+
+//TODO: --- 👇 copy to clipboard
+
+const copyToClipboard = (text) => {
+  const element = document.createElement("textarea");
+  element.value = text;
+  document.body.appendChild(element);
+  element.select();
+  document.execCommand("copy");
+  document.body.removeChild(element);
+};
+
+const handleClick = () => {
+  const text = document.querySelector("#text");
+  copyToClipboard(text.innerText);
+};
+
+//TODO:  --- 👇 destructuring aliases
+
+const language = {
+  name: "javascript",
+  founded: 1995,
+  founder: "Brendan Eich",
+};
+
+const { name: languageName, founder: founderName } = language;
+console.log(languageName, founderName);
+
+//TODO:  --- 👇 Get value as data type
+
+// const inputNumber = document.querySelector("#number_input").valueAsNumber;
+// console.log(typeof inputNumber, " --- ", { inputNumber });
